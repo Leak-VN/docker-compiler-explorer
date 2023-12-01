@@ -15,7 +15,7 @@ The repository contains a `Dockerfile` with all the required instructions to bui
 
 You can just type in your terminal:
 
-`docker pull madduci/docker-compiler-explorer:latest && docker-compose up -d`
+```docker buildx build -t vouu/compiler-explorer --platform linux/amd64,linux/arm64 --push .```
 
 to use my docker image or, in case of adjustments to the `Dockerfile`, just type:
 
