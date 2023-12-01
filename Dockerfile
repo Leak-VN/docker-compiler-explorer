@@ -1,4 +1,4 @@
-FROM madduci/docker-linux-cpp:latest
+FROM ubuntu:20.04
 
 LABEL maintainer="Michele Adduci <adduci@tutanota.com>" \
       license="Copyright (c) 2012-2022, Matt Godbolt"
@@ -6,11 +6,15 @@ LABEL maintainer="Michele Adduci <adduci@tutanota.com>" \
 EXPOSE 10240
 
 RUN echo "*** Installing Compiler Explorer ***" \
-    && DEBIAN_FRONTEND=noninteractive apt-get update \
+    && DEBIAN_FRONTEND=noninteractive \ 
+    && apt-get update \
     && apt-get install -y curl \
     && curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y \
         wget \
+        gcc \
+        g++ \
+        build-essential \
         ca-certificates \
         nodejs \
         make \
